@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+<script>
+function countdown(start, end, callback) {
+    if (start > end) {
+        document.body.innerHTML = start;
+        start--;
+        setTimeout(function() {
+            countdown(start, end, callback);
+        }, 1000);
+    } else {
+        callback();
+    }
+}
+
+function displayMessage() {
+    document.body.innerHTML = "Happy Independence Day!";
+}
+
+countdown(10, 1, function() {
+    displayMessage();
+});
+</script>
+
+</body>
+</html>
